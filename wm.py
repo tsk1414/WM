@@ -19,8 +19,13 @@ mistake_ctr = 0
 
 for t in data:
     e_vec = data[t][0]
-    alpha_val = e_vec.count('1')
-    beta_val = e_vec.count('0')
+    alpha_val = 0.00
+    beta_val = 0.00
+    for j in range(16):
+        if e_vec[j] == '1':
+            alpha_val += w_vec[j]
+        if e_vec[j] == '0':
+            beta_val += w_vec[j]
 
     policy = '0'
     if alpha_val >= beta_val:
